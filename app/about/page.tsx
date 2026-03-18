@@ -28,7 +28,7 @@ export const metadata = {
 
 const stats = [
   { value: "500+", label: "Properties Sold", icon: Building2 },
-  { value: "15+", label: "Years Experience", icon: Clock },
+  { value: "10+", label: "Years Experience", icon: Clock },
   { value: "50+", label: "Expert Agents", icon: Users },
   { value: "98%", label: "Client Satisfaction", icon: Star },
 ]
@@ -81,25 +81,21 @@ const services = [
 
 const team = [
   {
-    name: "Sarah Johnson",
-    role: "CEO & Founder",
+    name: "Anil Dhiman",
+    role: "Property Consultant",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
   },
   {
-    name: "Michael Chen",
-    role: "Head of Sales",
+    name: "Imran",
+    role: "Property Consultant",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Senior Agent",
+    name: "Satya",
+    role: "Property Consultant",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
   },
-  {
-    name: "David Kim",
-    role: "Property Manager",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-  },
+  
 ]
 
 export default function AboutPage() {
@@ -134,7 +130,7 @@ export default function AboutPage() {
                 About Aspire Groups
               </h1>
               <p className="text-background/80 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-                For over 15 years, we have been helping families find their dream homes. 
+                For over 10 years, we have been helping families find their dream homes. 
                 Our commitment to excellence and client satisfaction has made us a trusted name in real estate.
               </p>
             </div>
@@ -188,7 +184,7 @@ export default function AboutPage() {
                     <Award className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-serif text-2xl font-bold">2009</p>
+                    <p className="font-serif text-2xl font-bold">2016</p>
                     <p className="text-sm opacity-90">Established</p>
                   </div>
                 </div>
@@ -321,14 +317,14 @@ export default function AboutPage() {
         </section>
 
         {/* Team Section */}
-        <section className="py-16 lg:py-24 bg-muted">
-          <div className="container mx-auto px-4 lg:px-8">
+        <section className="py-16 lg:py-24 bg-muted ">
+          <div className="container mx-auto px-4 lg:px-8 ">
             <div className="text-center mb-12 lg:mb-16">
               <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
                 <Users className="h-4 w-4" />
                 Our People
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 ">
                 Meet Our Team
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
@@ -336,11 +332,11 @@ export default function AboutPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center max-w-5xl mx-auto">
               {team.map((member, index) => (
                 <div
                   key={member.name}
-                  className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group animate-fade-in-up"
+                  className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group animate-fade-in-up w-full"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="relative aspect-square overflow-hidden">

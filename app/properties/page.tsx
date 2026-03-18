@@ -31,7 +31,7 @@ export default function PropertiesPage() {
                 <Building2 className="h-4 w-4" />
                 <span className="text-sm font-medium">Premium Collection</span>
               </div>
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-bold text-background mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 Our Properties
               </h1>
               <p className="text-background/70 text-lg lg:text-xl max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s" }}>

@@ -134,7 +134,7 @@ export function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="font-semibold text-lg mb-6 flex items-center gap-2">
+            <h3 className="font-semibold text-lg sm:text-xl mb-6 flex items-center gap-2">
               <span className="w-8 h-0.5 bg-primary rounded-full" />
               Connect With Us
             </h3>
@@ -162,7 +162,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
                         Dealer 1 - Anil
                       </Button>
@@ -173,7 +173,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
                         <MessageCircle className="h-5 w-5" />
                         Dealer 2 - Satya
                       </Button>
@@ -184,7 +184,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
                         <MessageCircle className="h-5 w-5" />
                         Dealer 3 - Imran
                       </Button>

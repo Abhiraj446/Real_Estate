@@ -137,6 +137,12 @@
   }
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Custom animations */
 @keyframes float {
   0%, 100% { transform: translateY(0); }

@@ -75,7 +75,7 @@ export default function ContactPage() {
                 <Sparkles className="h-4 w-4" />
                 <span className="text-sm font-medium">Get In Touch</span>
               </div>
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-bold text-background mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 Contact Us
               </h1>
               <p className="text-background/70 text-lg lg:text-xl max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
                         Dealer 1 - Anil
                       </Button>
@@ -163,7 +163,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
                         Dealer 2 - Satya
                       </Button>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
                         Dealer 3 - Imran
                       </Button>

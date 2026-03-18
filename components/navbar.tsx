@@ -41,10 +41,10 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <Building2 className="h-8 w-8 lg:h-9 lg:w-9 text-primary transition-transform duration-300 group-hover:scale-110" />
+              <Building2 className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-primary transition-transform duration-300 group-hover:scale-110" />
               <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <span className="font-serif text-xl lg:text-2xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
+            <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
               Aspire Groups
             </span>
           </Link>
@@ -55,7 +55,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative px-4 py-2 font-medium text-foreground transition-all duration-300 rounded-full hover:bg-primary/10 group"
+                className="relative px-4 py-2 text-sm lg:text-base font-medium text-foreground transition-all duration-300 rounded-full hover:bg-primary/10 group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <span className="relative z-10 group-hover:text-primary transition-colors duration-300">

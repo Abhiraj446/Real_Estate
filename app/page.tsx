@@ -75,7 +75,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2 text-background/70">
                   <Shield className="h-5 w-5 text-primary" />
-                  <span className="text-sm">Trusted Since 2009</span>
+                  <span className="text-sm">Trusted Since 2016</span>
                 </div>
               </div>
             </div>
@@ -162,14 +162,14 @@ export default function HomePage() {
                   At Aspire Groups, we understand that finding the perfect property is more than just a transaction. It is about finding a place where memories are made and dreams come true.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-8">
-                  With over 15 years of experience in the real estate industry, our team of dedicated professionals is committed to providing exceptional service and expert guidance throughout your property journey.
+                  With over 10 years of experience in the real estate industry, our team of dedicated professionals is committed to providing exceptional service and expert guidance throughout your property journey.
                 </p>
                 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 mb-8">
                   {[
                     { value: "500+", label: "Properties Sold" },
-                    { value: "15+", label: "Years Experience" },
+                    { value: "10+", label: "Years Experience" },
                     { value: "98%", label: "Client Satisfaction" },
                   ].map((stat, index) => (
                     <div 
@@ -207,7 +207,7 @@ export default function HomePage() {
                       <Award className="h-6 w-6" />
                     </div>
                     <div>
-                      <p className="font-serif text-2xl font-bold">15+</p>
+                      <p className="font-serif text-2xl font-bold">10+</p>
                       <p className="text-sm opacity-90">Years of Excellence</p>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export default function HomePage() {
                   <div 
                     key={feature.title}
                     className="bg-card p-8 lg:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center group animate-fade-in-up border border-transparent hover:border-primary/20"
-                    style={{ animationDelay: `${index * 0.15}s` }}
+                    style={{ animationDelay: `${index * 0.10}s` }}
                   >
                     <div className="inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 bg-primary/10 rounded-2xl mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                       <Icon className="h-8 w-8 lg:h-10 lg:w-10 text-primary group-hover:text-primary-foreground transition-colors duration-300" />

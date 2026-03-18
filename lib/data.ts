@@ -3,7 +3,7 @@ import type { Property } from "@/components/property-card"
 export const properties: Property[] = [
   {
     id: "1",
-    title: "Modern Luxury Villa",
+    title: "Skyline Penthouse",
     location: "Beverly Hills, CA",
     price: 2500000,
     image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
@@ -15,7 +15,7 @@ export const properties: Property[] = [
   },
   {
     id: "2",
-    title: "Downtown Penthouse",
+    title: "Royal Horizon Villa",
     location: "Manhattan, NY",
     price: 3200000,
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
@@ -27,7 +27,7 @@ export const properties: Property[] = [
   },
   {
     id: "3",
-    title: "Coastal Beach House",
+    title: "Prestige Residency",
     location: "Malibu, CA",
     price: 4800000,
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
@@ -39,7 +39,7 @@ export const properties: Property[] = [
   },
   {
     id: "4",
-    title: "Urban Loft Apartment",
+    title: "Elite Heights Penthouse",
     location: "Chicago, IL",
     price: 650000,
     image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
@@ -51,7 +51,7 @@ export const properties: Property[] = [
   },
   {
     id: "5",
-    title: "Mountain Retreat",
+    title: "Green Valley Villa",
     location: "Aspen, CO",
     price: 1950000,
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
@@ -63,7 +63,7 @@ export const properties: Property[] = [
   },
   {
     id: "6",
-    title: "Mediterranean Estate",
+    title: "Urban Nest Residency",
     location: "Miami, FL",
     price: 3500000,
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
@@ -75,7 +75,7 @@ export const properties: Property[] = [
   },
   {
     id: "7",
-    title: "City View Condo",
+    title: "Imperial Smart Home",
     location: "San Francisco, CA",
     price: 980000,
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
@@ -87,7 +87,7 @@ export const properties: Property[] = [
   },
   {
     id: "8",
-    title: "Colonial Family Home",
+    title: "Palm Residency Villa",
     location: "Boston, MA",
     price: 1250000,
     image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&h=600&fit=crop",
@@ -99,7 +99,7 @@ export const properties: Property[] = [
   },
   {
     id: "9",
-    title: "Contemporary Smart Home",
+    title: "Silver Crest Penthouse",
     location: "Seattle, WA",
     price: 1750000,
     image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
@@ -111,7 +111,7 @@ export const properties: Property[] = [
   },
   {
     id: "10",
-    title: "Luxury Commercial Space",
+    title: "Harmony Luxury Villa",
     location: "Los Angeles, CA",
     price: 5500000,
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
@@ -123,7 +123,7 @@ export const properties: Property[] = [
   },
   {
     id: "11",
-    title: "Riverside Townhouse",
+    title: "Platinum Heights Home",
     location: "Austin, TX",
     price: 720000,
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
@@ -135,7 +135,7 @@ export const properties: Property[] = [
   },
   {
     id: "12",
-    title: "Skyline Tower Suite",
+    title: "Elysian Residency",
     location: "Dallas, TX",
     price: 890000,
     image: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&h=600&fit=crop",
