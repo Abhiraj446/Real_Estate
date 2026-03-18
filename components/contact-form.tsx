@@ -7,27 +7,28 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 interface FormData {
-  name: string
+  fullName: string
   email: string
   phone: string
-  budget: string
+  iWantTo: string
   propertyType: string
-  inquiryType: string
+  budgetRange: string
   message: string
 }
 
 export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
+    fullName: "",
     email: "",
     phone: "",
-    budget: "",
+    iWantTo: "",
     propertyType: "",
-    inquiryType: "",
+    budgetRange: "",
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -39,22 +40,43 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(null)
 
-    // Create mailto link to send email to dealer
-    const mailtoLink = `mailto:dealer@aspiregroups.com?subject=Property Inquiry from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0ABudget: ${formData.budget}%0D%0AProperty Type: ${formData.propertyType}%0D%0AInterested In: ${formData.inquiryType}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`
-    
-    // Open email client
-    window.location.href = mailtoLink
+    try {
+      const response = await fetch("/api/contact/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
 
-    // Simulate submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: "", email: "", phone: "", budget: "", propertyType: "", inquiryType: "", message: "" })
+      const result = await response.json().catch(() => null)
 
-    // Reset success state after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
+      if (!response.ok || !result?.success) {
+        const errorFromValidation = Array.isArray(result?.errors) ? result.errors?.[0]?.msg : null
+        const message = errorFromValidation || result?.message || "Failed to submit form. Please try again."
+        setSubmitError(message)
+        setIsSubmitting(false)
+        return
+      }
+
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        iWantTo: "",
+        propertyType: "",
+        budgetRange: "",
+        message: "",
+      })
+
+      // Reset success state after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch {
+      setIsSubmitting(false)
+      setSubmitError("Could not reach the server. Please try again.")
+    }
   }
 
   if (isSubmitted) {
@@ -75,6 +97,7 @@ export function ContactForm() {
 
   return (
     <form
+      id="contactForm"
       onSubmit={handleSubmit}
       className="bg-card border border-border rounded-3xl p-6 lg:p-10 shadow-xl hover:shadow-2xl transition-shadow duration-500"
     >
@@ -90,7 +113,7 @@ export function ContactForm() {
       <div className="space-y-5">
         {/* Name Field */}
         <div className="group">
-          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="fullName" className="block text-sm font-medium text-foreground mb-2">
             Full Name
           </label>
           <div className="relative">
@@ -98,11 +121,11 @@ export function ContactForm() {
               <User className="h-5 w-5" />
             </div>
             <Input
-              id="name"
-              name="name"
+              id="fullName"
+              name="fullName"
               type="text"
               placeholder=""
-              value={formData.name}
+              value={formData.fullName}
               onChange={handleChange}
               required
               className="pl-12 h-12 bg-muted border-0 rounded-xl focus:ring-2 focus:ring-primary transition-all duration-300"
@@ -156,13 +179,13 @@ export function ContactForm() {
         
         {/* Inquiry Type Field */}
         <div className="group">
-          <label htmlFor="inquiryType" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="iWantTo" className="block text-sm font-medium text-foreground mb-2">
             I Want To
           </label>
           <select
-            id="inquiryType"
-            name="inquiryType"
-            value={formData.inquiryType}
+            id="iWantTo"
+            name="iWantTo"
+            value={formData.iWantTo}
             onChange={handleChange}
             required
             className="w-full h-12 px-4 bg-muted border-0 rounded-xl text-foreground outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
@@ -171,7 +194,7 @@ export function ContactForm() {
             <option value="buy">Buy a Property</option>
             <option value="sell">Sell a Property</option>
             <option value="lease">Lease a Property</option>
-            <option value="Rent">Rent a Property</option>
+            <option value="rent">Rent a Property</option>
           </select>
         </div>
         
@@ -205,7 +228,7 @@ export function ContactForm() {
         
         {/* Budget Field */}
         <div className="group">
-          <label htmlFor="budget" className="block text-sm font-medium text-foreground mb-2">
+          <label htmlFor="budgetRange" className="block text-sm font-medium text-foreground mb-2">
             Budget Range
           </label>
           <div className="relative">
@@ -213,9 +236,9 @@ export function ContactForm() {
               <IndianRupee className="h-5 w-5" />
             </div>
             <select
-              id="budget"
-              name="budget"
-              value={formData.budget}
+              id="budgetRange"
+              name="budgetRange"
+              value={formData.budgetRange}
               onChange={handleChange}
               required
               className="w-full h-12 pl-12 pr-4 bg-muted border-0 rounded-xl text-foreground outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
@@ -253,7 +276,13 @@ export function ContactForm() {
           </div>
         </div>
       </div>
-      
+
+      {submitError ? (
+        <p className="mt-5 text-sm text-destructive" role="alert">
+          {submitError}
+        </p>
+      ) : null}
+
       <Button
         type="submit"
         disabled={isSubmitting}
