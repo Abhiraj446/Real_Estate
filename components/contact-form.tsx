@@ -82,8 +82,8 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="bg-card border border-border rounded-3xl p-8 lg:p-12 text-center shadow-xl animate-scale-in">
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6 animate-bounce">
-          <CheckCircle className="h-10 w-10 text-green-600" />
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6 animate-bounce">
+          <CheckCircle className="h-10 w-10 text-primary" />
         </div>
         <h3 className="font-serif text-2xl lg:text-3xl font-semibold text-foreground mb-3">
           Message Sent Successfully!

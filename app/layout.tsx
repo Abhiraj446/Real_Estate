@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: 'Find your dream property with Aspire Groups. Premium real estate listings, luxury homes, and professional property services.',
   generator: 'v0.app',
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/logo.svg', type: 'image/svg+xml' }],
   },
 }
 

@@ -135,8 +135,8 @@ export default function ContactPage() {
                 {/* WhatsApp Buttons */}
                 <div className="bg-muted p-6 lg:p-8 rounded-3xl">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-green-500/10 rounded-lg">
-                      <MessageCircle className="h-5 w-5 text-green-600" />
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <MessageCircle className="h-5 w-5 text-primary" />
                     </div>
                     <h3 className="font-semibold text-foreground">
                       Quick Contact via WhatsApp
@@ -152,9 +152,9 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
-                        Dealer 1 - Anil
+                        Contact - Anil
                       </Button>
                     </a>
                     <a
@@ -163,9 +163,9 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
-                        Dealer 2 - Satya
+                        Contact - Satya
                       </Button>
                     </a>
                     <a
@@ -174,9 +174,9 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
-                        Dealer 3 - Imran
+                        Contact - Imran
                       </Button>
                     </a>
                   </div>

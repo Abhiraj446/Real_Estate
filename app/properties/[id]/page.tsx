@@ -262,7 +262,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                       </Button>
                     </Link>
                     <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="w-full gap-2 h-12 rounded-xl border-green-500 text-green-600 hover:bg-green-500 hover:text-white transition-all duration-300">
+                      <Button variant="outline" className="w-full gap-2 h-12 rounded-xl border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                         <MessageCircle className="h-5 w-5" />
                         WhatsApp Agent
                       </Button>
@@ -270,7 +270,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                   </div>
                   
                   <p className="text-xs text-muted-foreground text-center mt-6 flex items-center justify-center gap-1">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <CheckCircle className="h-3 w-3 text-primary" />
                     Response time: Usually within 24 hours
                   </p>
                 </div>

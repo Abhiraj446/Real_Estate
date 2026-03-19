@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, Home, Building2, Info, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -41,8 +42,15 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <Building2 className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-primary transition-transform duration-300 group-hover:scale-110" />
-              <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Image
+                src="/logo.png"
+                alt="Aspire Groups logo"
+                width={36}
+                height={36}
+                priority
+                className="h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-primary transition-transform duration-300 "
+              />
+              {/* <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" /> */}
             </div>
             <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">
               Aspire Groups

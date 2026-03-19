@@ -82,18 +82,18 @@ const services = [
 const team = [
   {
     name: "Anil Dhiman",
-    role: "Property Consultant",
+    role: "Director",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
   },
   {
     name: "Imran",
-    role: "Property Consultant",
+    role: "Director",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
   },
   {
     name: "Satya",
-    role: "Property Consultant",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+    role: "Director",
+    image: "Satya.jpeg",
   },
   
 ]

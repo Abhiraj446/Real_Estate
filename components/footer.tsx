@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 import { Building2, Facebook, Instagram, MessageCircle, Mail, Phone, MapPin, ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -58,7 +59,13 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6 group">
               <div className="relative">
-                <Building2 className="h-9 w-9 text-primary transition-transform duration-300 group-hover:scale-110" />
+                <Image
+                  src="/logo.png"
+                  alt="Aspire Groups logo"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 text-primary transition-transform duration-300 group-hover:scale-110"
+                />
                 <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <span className="font-serif text-2xl font-bold group-hover:text-primary transition-colors duration-300">Aspire Groups</span>
@@ -162,9 +169,9 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 sm:py-4 md:py-5">
                         <MessageCircle className="h-5 w-5" />
-                        Dealer 1 - Anil
+                        Contact - Anil
                       </Button>
                     </a>
                     <a
@@ -173,9 +180,9 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
                         <MessageCircle className="h-5 w-5" />
-                        Dealer 2 - Satya
+                        Contact - Satya
                       </Button>
                     </a>
                     <a
@@ -184,9 +191,9 @@ export function Footer() {
                       rel="noopener noreferrer"
                       className="flex-1"
                     >
-                      <Button className="w-full bg-green-600 hover:bg-green-500 text-white text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm gap-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-6">
                         <MessageCircle className="h-5 w-5" />
-                        Dealer 3 - Imran
+                        Contact - Imran
                       </Button>
                     </a>
             </div>
