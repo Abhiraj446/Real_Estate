@@ -58,7 +58,7 @@ export default function HomePage() {
                 </Link>
                 <Link href="/contact">
                   <Button size="lg" variant="outline" className="bg-background/10 border-background/30 text-background hover:bg-background/20 hover:border-background/50 transition-all duration-300 rounded-full px-8">
-                    Contact Dealer
+                    Contact Us
                   </Button>
                 </Link>
               </div>
@@ -300,11 +300,11 @@ export default function HomePage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full px-10 py-6 text-lg">
-                  <Sparkles className="h-5 w-5" />
-                  Contact Dealer
-                </Button>
-              </Link>
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full px-10 py-6 text-lg">
+                    <Sparkles className="h-5 w-5" />
+                    Contact Us
+                  </Button>
+                </Link>
               <Link href="/properties">
                 <Button
                   size="lg"

@@ -77,11 +77,11 @@ export function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Link href="/contact">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 gap-2 rounded-full px-6">
-                <Sparkles className="h-4 w-4" />
-                Contact Dealer
-              </Button>
-            </Link>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 gap-2 rounded-full px-6">
+                  <Sparkles className="h-4 w-4" />
+                  Contact Us
+                </Button>
+              </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,7 +126,7 @@ export function Navbar() {
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
                   <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl py-3 gap-2 shadow-lg">
                     <Sparkles className="h-4 w-4" />
-                    Contact Dealer
+                    Contact Us
                   </Button>
                 </Link>
               </div>
