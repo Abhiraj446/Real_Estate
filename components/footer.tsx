@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { Building2, Facebook, Instagram, MessageCircle, Mail, Phone, MapPin, ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -164,7 +165,7 @@ export function Footer() {
             </div> */}
             <div className="flex flex-col gap-3">
               <a
-                      href="https://wa.me/8427966111"
+                      href={getWhatsAppUrl({ phone: "+91 8427966111", text: "Hi Anil, I saw your listing on Aspire Groups." })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1"
@@ -175,7 +176,7 @@ export function Footer() {
                       </Button>
                     </a>
                     <a
-                      href="https://wa.me/8748003000"
+                      href={getWhatsAppUrl({ phone: "+91 8748003000", text: "Hi Satya, I saw your listing on Aspire Groups." })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1"
@@ -186,7 +187,7 @@ export function Footer() {
                       </Button>
                     </a>
                     <a
-                      href="https://wa.me/9858863362"
+                      href={getWhatsAppUrl({ phone: "+91 98588 63362", text: "Hi Imran, I saw your listing on Aspire Groups." })}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1"

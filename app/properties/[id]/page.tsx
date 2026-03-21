@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { properties } from "@/lib/data"
+import { getWhatsAppUrl } from "@/lib/whatsapp"
 
 export async function generateStaticParams() {
   return properties.map((property) => ({
@@ -261,7 +262,14 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
                         Schedule a Tour
                       </Button>
                     </Link>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={getWhatsAppUrl({
+                        phone: "+91 98588 63362",
+                        text: "Hi, I’m interested in this property. Can you share details?",
+                      })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Button variant="outline" className="w-full gap-2 h-12 rounded-xl border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
                         <MessageCircle className="h-5 w-5" />
                         WhatsApp Agent
