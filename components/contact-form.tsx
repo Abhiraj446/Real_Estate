@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Send, CheckCircle, Loader2, Sparkles, User, Mail, Phone, IndianRupee, Home, MessageSquare } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { MotionButton } from "@/components/motion/motion-button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
@@ -283,7 +283,7 @@ export function ContactForm() {
         </p>
       ) : null}
 
-      <Button
+      <MotionButton
         type="submit"
         disabled={isSubmitting}
         className="w-full mt-8 bg-primary hover:bg-primary/90 text-primary-foreground gap-2 h-14 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
@@ -299,7 +299,7 @@ export function ContactForm() {
             Send Message
           </>
         )}
-      </Button>
+      </MotionButton>
     </form>
   )
 }

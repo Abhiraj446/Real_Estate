@@ -1,5 +1,3 @@
-import Image from "next/image"
-import Link from "next/link"
 import { 
   Shield, 
   Award, 
@@ -16,10 +14,14 @@ import {
   Star,
   CheckCircle
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { CountUp } from "@/components/count-up"
+import { Reveal } from "@/components/motion/reveal"
+import { MotionCard } from "@/components/motion/motion-card"
+import { MotionImage } from "@/components/motion/motion-image"
+import { MotionLinkButton } from "@/components/motion/motion-link-button"
+import { TeamCard } from "@/components/team-card"
 
 export const metadata = {
   title: "About Us | Aspire Groups",
@@ -83,12 +85,12 @@ const team = [
   {
     name: "Anil Dhiman",
     role: "Director",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
+    image: "Anil.jpeg",
   },
   {
     name: "Imran",
     role: "Director",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    image: "Imran.jpeg",
   },
   {
     name: "Satya",
@@ -106,14 +108,15 @@ export default function AboutPage() {
       <main className="flex-1 pt-16 lg:pt-20">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-36 bg-foreground overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <Image
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
-              alt="Background"
-              fill
-              className="object-cover"
-            />
-          </div>
+          <MotionImage
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
+            alt="Background"
+            fill
+            priority
+            parallax
+            wrapperClassName="absolute inset-0 opacity-20"
+            imageClassName="object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-foreground/80 via-foreground/90 to-foreground" />
           
           {/* Decorative elements */}
@@ -122,17 +125,23 @@ export default function AboutPage() {
           
           <div className="container mx-auto px-4 lg:px-8 relative">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-primary px-4 py-2 rounded-full mb-6 animate-fade-in-up">
-                <Sparkles className="h-4 w-4" />
-                <span className="text-sm font-medium">Our Story</span>
-              </div>
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-                About Aspire Groups
-              </h1>
-              <p className="text-background/80 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-                For over 10 years, we have been helping families find their dream homes. 
-                Our commitment to excellence and client satisfaction has made us a trusted name in real estate.
-              </p>
+              <Reveal mode="onLoad">
+                <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-primary px-4 py-2 rounded-full mb-6">
+                  <Sparkles className="h-4 w-4" />
+                  <span className="text-sm font-medium">Our Story</span>
+                </div>
+              </Reveal>
+              <Reveal mode="onLoad" delay={0.08}>
+                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-background mb-6">
+                  About Aspire Groups
+                </h1>
+              </Reveal>
+              <Reveal mode="onLoad" delay={0.16}>
+                <p className="text-background/80 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto">
+                  For over 10 years, we have been helping families find their dream homes.
+                  Our commitment to excellence and client satisfaction has made us a trusted name in real estate.
+                </p>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -145,18 +154,16 @@ export default function AboutPage() {
                 {stats.map((stat, index) => {
                   const Icon = stat.icon
                   return (
-                    <div 
-                      key={stat.label} 
-                      className="text-center p-4 sm:p-6 animate-fade-in-up"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <Icon className="h-8 w-8 text-primary mx-auto mb-3" />
-                      <CountUp
-                        value={stat.value}
-                        className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 block"
-                      />
-                      <p className="text-muted-foreground text-sm">{stat.label}</p>
-                    </div>
+                    <Reveal key={stat.label} delay={index * 0.06}>
+                      <div className="text-center p-4 sm:p-6">
+                        <Icon className="h-8 w-8 text-primary mx-auto mb-3" />
+                        <CountUp
+                          value={stat.value}
+                          className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 block"
+                        />
+                        <p className="text-muted-foreground text-sm">{stat.label}</p>
+                      </div>
+                    </Reveal>
                   )
                 })}
               </div>
@@ -170,58 +177,66 @@ export default function AboutPage() {
           
           <div className="container mx-auto px-4 lg:px-8 relative">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
-                    alt="Our mission"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-2xl hidden lg:flex items-center gap-3 animate-float">
-                  <div className="p-3 bg-primary-foreground/10 rounded-xl">
-                    <Award className="h-6 w-6" />
+              <Reveal direction="left">
+                <MotionCard className="relative group">
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl card-premium relative">
+                    <MotionImage
+                      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
+                      alt="Our mission"
+                      fill
+                      sizes="(max-width: 768px) 92vw, 520px"
+                      wrapperClassName="absolute inset-0"
+                      imageClassName="object-cover img-premium"
+                      parallax
+                      quality={85}
+                    />
                   </div>
-                  <div>
-                    <p className="font-serif text-2xl font-bold">2016</p>
-                    <p className="text-sm opacity-90">Established</p>
-                  </div>
-                </div>
-                <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-primary/20 rounded-2xl -z-10" />
-              </div>
-              
-              <div>
-                <div className="mb-12">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-xl">
-                      <Target className="h-7 w-7 text-primary" />
+                  <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-2xl hidden lg:flex items-center gap-3 animate-float">
+                    <div className="p-3 bg-primary-foreground/10 rounded-xl">
+                      <Award className="h-6 w-6" />
                     </div>
-                    <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground">Our Mission</h2>
+                    <div>
+                      <p className="font-serif text-2xl font-bold">2016</p>
+                      <p className="text-sm opacity-90">Established</p>
+                    </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    To provide exceptional real estate services that exceed client expectations. 
-                    We are committed to helping individuals and families find properties that perfectly 
-                    match their lifestyle, needs, and dreams while ensuring a seamless and enjoyable 
-                    buying experience.
-                  </p>
-                </div>
-                
+                  <div className="absolute -top-4 -left-4 w-24 h-24 border-2 border-primary/20 rounded-2xl -z-10" />
+                </MotionCard>
+              </Reveal>
+
+              <Reveal direction="right" delay={0.08}>
                 <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-xl">
-                      <Eye className="h-7 w-7 text-primary" />
+                  <div className="mb-12">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="p-3 bg-primary/10 rounded-xl">
+                        <Target className="h-7 w-7 text-primary" />
+                      </div>
+                      <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground">Our Mission</h2>
                     </div>
-                    <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground">Our Vision</h2>
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      To provide exceptional real estate services that exceed client expectations.
+                      We are committed to helping individuals and families find properties that perfectly
+                      match their lifestyle, needs, and dreams while ensuring a seamless and enjoyable
+                      buying experience.
+                    </p>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    To be the most trusted and innovative real estate company, known for our 
-                    unwavering commitment to client satisfaction, market expertise, and ethical 
-                    business practices. We aim to set the standard for excellence in the real 
-                    estate industry.
-                  </p>
+
+                  <div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="p-3 bg-primary/10 rounded-xl">
+                        <Eye className="h-7 w-7 text-primary" />
+                      </div>
+                      <h2 className="font-serif text-2xl lg:text-3xl font-bold text-foreground">Our Vision</h2>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed text-lg">
+                      To be the most trusted and innovative real estate company, known for our
+                      unwavering commitment to client satisfaction, market expertise, and ethical
+                      business practices. We aim to set the standard for excellence in the real
+                      estate industry.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -229,38 +244,38 @@ export default function AboutPage() {
         {/* Our Values */}
         <section className="py-16 lg:py-24 bg-muted">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center mb-12 lg:mb-16">
-              <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
-                <Heart className="h-4 w-4" />
-                What We Stand For
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                Our Core Values
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                These principles guide everything we do and define who we are as a company.
-              </p>
-            </div>
+            <Reveal>
+              <div className="text-center mb-12 lg:mb-16">
+                <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
+                  <Heart className="h-4 w-4" />
+                  What We Stand For
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                  Our Core Values
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                  These principles guide everything we do and define who we are as a company.
+                </p>
+              </div>
+            </Reveal>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) => {
                 const Icon = value.icon
                 return (
-                  <div
-                    key={value.title}
-                    className="bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 text-center group animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <Icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                    </div>
-                    <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
+                  <Reveal key={value.title} delay={index * 0.08}>
+                    <MotionCard className="bg-card p-8 rounded-3xl shadow-lg transition-all duration-500 text-center group card-premium">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <Icon className="h-8 w-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                      </div>
+                      <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {value.description}
+                      </p>
+                    </MotionCard>
+                  </Reveal>
                 )
               })}
             </div>
@@ -270,46 +285,46 @@ export default function AboutPage() {
         {/* Our Services */}
         <section className="py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center mb-12 lg:mb-16">
-              <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
-                <Sparkles className="h-4 w-4" />
-                What We Offer
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                Our Services
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Comprehensive real estate services tailored to meet your unique needs.
-              </p>
-            </div>
+            <Reveal>
+              <div className="text-center mb-12 lg:mb-16">
+                <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
+                  <Sparkles className="h-4 w-4" />
+                  What We Offer
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                  Our Services
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                  Comprehensive real estate services tailored to meet your unique needs.
+                </p>
+              </div>
+            </Reveal>
             
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               {services.map((service, index) => {
                 const Icon = service.icon
                 return (
-                  <div
-                    key={service.title}
-                    className="flex gap-5 p-6 lg:p-8 bg-muted rounded-3xl hover:bg-muted/80 transition-all duration-300 group animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                        <Icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                  <Reveal key={service.title} delay={index * 0.08}>
+                    <MotionCard className="flex gap-5 p-6 lg:p-8 bg-muted rounded-3xl hover:bg-muted/80 transition-all duration-300 group card-premium">
+                      <div className="flex-shrink-0">
+                        <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                          <Icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </p>
-                      <div className="flex items-center gap-2 mt-4 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                        <span>Learn more</span>
-                        <ArrowRight className="h-4 w-4" />
+                      <div>
+                        <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {service.description}
+                        </p>
+                        <div className="flex items-center gap-2 mt-4 text-primary font-medium text-sm group-hover:gap-3 transition-all duration-300">
+                          <span>Learn more</span>
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </MotionCard>
+                  </Reveal>
                 )
               })}
             </div>
@@ -319,42 +334,30 @@ export default function AboutPage() {
         {/* Team Section */}
         <section className="py-16 lg:py-24 bg-muted ">
           <div className="container mx-auto px-4 lg:px-8 ">
-            <div className="text-center mb-12 lg:mb-16">
-              <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
-                <Users className="h-4 w-4" />
-                Our People
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 ">
-                Meet Our Team
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Our experienced professionals are dedicated to helping you find your perfect property.
-              </p>
-            </div>
+            <Reveal>
+              <div className="text-center mb-12 lg:mb-16">
+                <span className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-4">
+                  <Users className="h-4 w-4" />
+                  Our People
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 ">
+                  Meet Our Team
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                  Our experienced professionals are dedicated to helping you find your perfect property.
+                </p>
+              </div>
+            </Reveal>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center max-w-5xl mx-auto">
               {team.map((member, index) => (
-                <div
+                <TeamCard
                   key={member.name}
-                  className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group animate-fade-in-up w-full"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                  <div className="p-5 text-center">
-                    <h3 className="font-serif font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{member.role}</p>
-                  </div>
-                </div>
+                  name={member.name}
+                  role={member.role}
+                  image={member.image}
+                  index={index}
+                />
               ))}
             </div>
           </div>
@@ -368,24 +371,34 @@ export default function AboutPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl -translate-y-1/2" />
           
           <div className="container mx-auto px-4 lg:px-8 text-center relative">
-            <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full mb-6">
-              <CheckCircle className="h-4 w-4" />
-              <span className="text-sm font-medium">Partner With Us</span>
-            </div>
-            
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-background mb-6 max-w-3xl mx-auto">
-              Ready to Work With Us?
-            </h2>
-            <p className="text-background/70 max-w-2xl mx-auto mb-10 text-lg">
-              Contact our team today and let us help you find the perfect property.
-            </p>
-            
-            <Link href="/contact">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full px-10 py-6 text-lg">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full mb-6">
+                <CheckCircle className="h-4 w-4" />
+                <span className="text-sm font-medium">Partner With Us</span>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-background mb-6 max-w-3xl mx-auto">
+                Ready to Work With Us?
+              </h2>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <p className="text-background/70 max-w-2xl mx-auto mb-10 text-lg">
+                Contact our team today and let us help you find the perfect property.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.20}>
+              <MotionLinkButton
+                href="/contact"
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-[0.98] rounded-full px-10 py-6 text-lg btn-premium"
+              >
                 Get in Touch
                 <ArrowRight className="h-5 w-5" />
-              </Button>
-            </Link>
+              </MotionLinkButton>
+            </Reveal>
           </div>
         </section>
       </main>

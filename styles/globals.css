@@ -123,3 +123,79 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes subtle-float {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-6px) scale(1.004);
+    }
+  }
+
+  @keyframes advanced-pop {
+    0% {
+      transform: translateY(18px) scale(0.98);
+      opacity: 0;
+    }
+    70% {
+      transform: translateY(-2px) scale(1.01);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes halo-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.2);
+    }
+    50% {
+      box-shadow: 0 10px 20px 0 rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  .animate-advanced-float {
+    animation: subtle-float 5.5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .animate-advanced-pop {
+    animation: advanced-pop 0.9s cubic-bezier(0.25, 1.05, 0.5, 1) both;
+  }
+
+  .animate-advanced-halo {
+    animation: halo-glow 4s ease-in-out infinite;
+  }
+
+  .animate-engage-btn {
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  .animate-team-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .animate-team-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 18px 30px rgba(15, 23, 42, 0.25);
+  }
+
+  .animate-property-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .animate-property-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 30px rgba(15, 23, 42, 0.18);
+  }
+
+  .animate-image-tilt {
+    transition: transform 0.45s ease, filter 0.45s ease;
+  }
+  .animate-image-tilt:hover {
+    transform: translateY(-6px) rotate(-0.3deg) scale(1.008);
+    filter: brightness(1.06);
+  }
+}
+

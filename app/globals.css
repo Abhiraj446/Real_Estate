@@ -214,19 +214,27 @@ html, body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: fadeInUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-in-left {
-  animation: fadeInLeft 0.6s ease-out forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: fadeInLeft 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-fade-in-right {
-  animation: fadeInRight 0.6s ease-out forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: fadeInRight 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: scaleIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-pulse-glow {
@@ -279,4 +287,91 @@ html, body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+
+/* Advanced UI micro-interactions (no new deps) */
+@keyframes shine-sweep {
+  0% { transform: translateX(-140%) skewX(-12deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateX(140%) skewX(-12deg); opacity: 0.9; }
+}
+
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.btn-premium::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.38) 35%, transparent 70%);
+  transform: translateX(-140%) skewX(-12deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .btn-premium:hover::after,
+  .btn-premium:focus-visible::after {
+    animation: shine-sweep 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@media (hover: none) {
+  .btn-premium:active::after {
+    animation: shine-sweep 1.0s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+.btn-premium:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.card-premium {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-premium::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(600px 240px at var(--mx, 20%) var(--my, 20%), rgba(255, 200, 70, 0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .card-premium:hover::after { opacity: 1; }
+  .card-premium:hover { transform: translateY(-6px) scale(1.01); }
+}
+
+@media (hover: none) {
+  .card-premium:active::after { opacity: 1; }
+  .card-premium:active { transform: translateY(-2px) scale(0.99); }
+}
+
+.img-premium {
+  transform: translateZ(0);
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .group:hover .img-premium { transform: scale(1.08); filter: saturate(1.08) contrast(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-premium::after,
+  .card-premium::after {
+    animation: none !important;
+    transition: none;
+  }
+  .img-premium {
+    transition: none;
+  }
 }
